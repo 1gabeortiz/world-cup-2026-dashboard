@@ -5,16 +5,9 @@ import type {
   ScorersResponse,
   StandingsResponse,
 } from './types';
-const BASE_URL = import.meta.env.VITE_FD_BASE_URL as string | undefined;
-function assertEnv(): { baseUrl: string } {
-  if (!BASE_URL) {
-    throw new Error('Missing VITE_FD_BASE_URL in environment variables.');
-  }
-  return { baseUrl: BASE_URL };
-}
+const BASE_URL = (import.meta.env.VITE_FD_BASE_URL as string | undefined) || '/api';
 async function get<T>(path: string): Promise<T> {
-  const { baseUrl } = assertEnv();
-  const response = await fetch(`${baseUrl}${path}`);
+  const response = await fetch(`${BASE_URL}${path}`);
   if (!response.ok) {
     throw new Error(
       `football-data.org API error: ${response.status} ${response.statusText} 

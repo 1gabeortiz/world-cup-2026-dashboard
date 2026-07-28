@@ -7,6 +7,7 @@ import GroupStagePage from './pages/GroupStagePage';
 import MatchesPage from './pages/MatchesPage';
 import KnockoutPage from './pages/KnockoutPage';
 import ScorersPage from './pages/ScorersPage';
+import PreviewHubPage from './pages/PreviewHubPage';
 function NotFoundPage() {
   return (
     <section className="panel p-6">
@@ -26,7 +27,8 @@ export default function App() {
         <Nav />
         <main className="page-wrap py-6">
           <Routes>
-            <Route path="/" element={<Navigate to="/groups" replace />} />
+            <Route path="/" element={<Navigate to="/preview" replace />} />
+            <Route path="/preview" element={<PreviewHubPage />} />
             <Route path="/groups" element={<GroupStagePage />} />
             <Route path="/matches" element={<MatchesPage />} />
             <Route path="/bracket" element={<KnockoutPage />} />

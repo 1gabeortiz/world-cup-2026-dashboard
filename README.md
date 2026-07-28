@@ -10,6 +10,7 @@ A live dashboard for the 2026 FIFA World Cup built with React + TypeScript, powe
 ## Live Demo
 
 - Production URL: `https://your-vercel-url.vercel.app`
+- Deployed on Vercel with a serverless `/api/*` proxy so users can try the dashboard instantly in-browser (no clone required).
 
 ## Preview
 
@@ -60,6 +61,25 @@ Run development server:
 npm run dev
 ```
 
+## Easy Preview
+
+Use these commands when you want a fast walkthrough of all routes:
+
+```bash
+# Local dev preview (auto-opens browser)
+npm run dev:host
+
+# Production-like preview from built files (port 4173)
+npm run preview:local
+```
+
+Then open the in-app launcher:
+
+- `http://localhost:5173/preview` (dev)
+- `http://localhost:4173/preview` (production preview)
+
+The `Preview Hub` route links to every page (`Groups`, `Matches`, `Bracket`, `Top Scorers`) so you can validate everything quickly before screenshots or deploy.
+
 ## Quality Checks
 
 ```bash
@@ -71,9 +91,14 @@ npm run build
 
 ## Deployment Notes
 
-- Set `VITE_FD_API_KEY` in Vercel environment variables
-- Keep `VITE_FD_BASE_URL=/api`
-- `vercel.json` includes SPA rewrites so direct route refreshes work
+- Import this GitHub repo into Vercel as a new project
+- Build command: `npm run build`
+- Output directory: `dist`
+- Set environment variable in Vercel:
+  - `FOOTBALL_DATA_API_KEY` = your football-data.org key
+- Optional: set `VITE_FD_BASE_URL=/api` (the app now defaults to `/api` automatically)
+- `api/[...path].js` proxies requests to football-data.org in production
+- `vercel.json` keeps SPA routes working (`/groups`, `/matches`, etc.)
 
 ## Why This Project
 

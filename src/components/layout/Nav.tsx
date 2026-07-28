@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 const links = [
+{ to: '/preview', label: 'Preview Hub' },
 { to: '/groups', label: 'Group Stage' },
 { to: '/matches', label: 'Matches' },
 { to: '/bracket', label: 'Bracket' },
