@@ -26,10 +26,7 @@ This dashboard highlights core front-end engineering skills:
 - Top scorers table with crest fallback handling
 - Loading skeletons and resilient error states
 
-## Screenshots
-
-Add screenshots and GIFs under `docs/media/`, then update the links below.
-
+## Previews
 ![Dashboard Overview](docs/media/groups.png)
 ![Matches Page](docs/media/matches.png)
 ![Knockout Bracket](docs/media/knockout.png)
