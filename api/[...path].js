@@ -1,7 +1,7 @@
 const UPSTREAM_BASE_URL = 'https://api.football-data.org/v4';
 
 function getApiToken() {
-  return process.env.FOOTBALL_DATA_API_KEY || process.env.VITE_FD_API_KEY || '';
+  return process.env.FD_API_KEY || process.env.FOOTBALL_DATA_API_KEY || '';
 }
 
 function buildUpstreamUrl(pathParam, query) {

@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
           secure: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
           headers: {
-            'X-Auth-Token': env.VITE_FD_API_KEY ?? '',
+            'X-Auth-Token': env.FD_API_KEY ?? env.FOOTBALL_DATA_API_KEY ?? '',
           },
         },
       },
