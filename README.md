@@ -30,10 +30,10 @@ This dashboard highlights core front-end engineering skills:
 
 Add screenshots and GIFs under `docs/media/`, then update the links below.
 
-![Dashboard Overview](docs/media/dashboard-overview.png)
-![Matches Page](docs/media/matches-page.png)
-![Knockout Bracket](docs/media/bracket-page.png)
-![Top Scorers](docs/media/scorers-page.png)
+![Dashboard Overview](docs/media/groups.png)
+![Matches Page](docs/media/matches.png)
+![Knockout Bracket](docs/media/knockout.png)
+![Top Scorers](docs/media/goldenboot.png)
 
 ## Tech Stack
 
