@@ -51,7 +51,7 @@ cp .env.example .env.local
 Update `.env.local`:
 
 ```bash
-VITE_FD_API_KEY=your_football_data_key
+FD_API_KEY=your_football_data_key
 VITE_FD_BASE_URL=/api
 ```
 
