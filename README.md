@@ -53,6 +53,20 @@ npm install
 cp .env.example .env.local
 ```
 
+If you are on Windows, use one of these copy commands instead:
+
+```powershell
+# PowerShell
+Copy-Item .env.example .env.local
+
+# Command Prompt (CMD)
+copy .env.example .env.local
+```
+
+Recommended runtime:
+
+- Node.js `20+` (Node `22` LTS recommended)
+
 ### 2) Configure environment variables
 
 Edit `.env.local`:
