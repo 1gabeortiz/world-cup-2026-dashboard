@@ -91,12 +91,20 @@ npm run build
 
 ## Deployment Notes
 
-- Import this GitHub repo into Vercel as a new project
+### Netlify (recommended for this repo right now)
+
+- Import this GitHub repo into Netlify
 - Build command: `npm run build`
-- Output directory: `dist`
-- Set environment variable in Vercel:
+- Publish directory: `dist`
+- Set environment variable:
   - `FOOTBALL_DATA_API_KEY` = your football-data.org key
-- Optional: set `VITE_FD_BASE_URL=/api` (the app now defaults to `/api` automatically)
+- `netlify.toml` rewrites `/api/*` to the Netlify function
+- `netlify/functions/football-data.js` proxies requests to football-data.org
+
+### Vercel (optional alternative)
+
+- Keep `FOOTBALL_DATA_API_KEY` set in Vercel
+- Optional: set `VITE_FD_BASE_URL=/api` (client defaults to `/api`)
 - `api/[...path].js` proxies requests to football-data.org in production
 - `vercel.json` keeps SPA routes working (`/groups`, `/matches`, etc.)
 
