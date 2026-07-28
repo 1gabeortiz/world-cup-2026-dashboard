@@ -1,45 +1,53 @@
 # World Cup 2026 Dashboard
 
-A live dashboard for the 2026 FIFA World Cup built with React + TypeScript, powered by the football-data.org API.
+A portfolio-focused React + TypeScript project that tracks 2026 World Cup data with a clean UI, typed API layer, and production-style engineering workflow.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=111827)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](../../actions)
 
-## Live Demo
+## Overview
 
-- Production URL: `https://your-vercel-url.vercel.app`
-- Deployed on Vercel with a serverless `/api/*` proxy so users can try the dashboard instantly in-browser (no clone required).
+This dashboard highlights core front-end engineering skills:
 
-## Preview
+- Typed API integration with `football-data.org`
+- Server-state caching and refetching with TanStack Query
+- Reusable component architecture and page-level routing
+- Responsive layout patterns for data-heavy views
+- Tests, linting, type-checking, and CI workflow
 
-****add media files under `docs/media/` and update these paths:****
+## Features
+
+- Live group standings with qualification highlighting
+- Match center with `All`, `Live`, `Results`, and `Upcoming` filters
+- Match sort controls for kickoff ordering
+- Knockout bracket layout by stage
+- Top scorers table with crest fallback handling
+- Loading skeletons and resilient error states
+
+## Screenshots
+
+Add screenshots and GIFs under `docs/media/`, then update the links below.
 
 ![Dashboard Overview](docs/media/dashboard-overview.png)
 ![Matches Page](docs/media/matches-page.png)
-![Bracket Demo](docs/media/bracket-demo.gif)
-
-## Key Features
-
-- Live group standings with qualification highlighting
-- Match center filters: `All`, `Live`, `Results`, `Upcoming`
-- Knockout bracket by stage with horizontal mobile scroll
-- Top scorers leaderboard with team crest support
-- Graceful loading skeletons and error states
-- Typed API service layer and cache-aware queries with TanStack Query
+![Knockout Bracket](docs/media/bracket-page.png)
+![Top Scorers](docs/media/scorers-page.png)
 
 ## Tech Stack
 
-- React + TypeScript + Vite
+- React 19 + TypeScript + Vite
 - React Router
 - TanStack Query
 - Tailwind CSS
 - Vitest + Testing Library
-- ESLint + GitHub Actions CI
-- Vercel deployment
+- ESLint + TypeScript strict checking
+- GitHub Actions CI
 
-## Quick Start
+## Getting Started
+
+### 1) Clone and install
 
 ```bash
 git clone https://github.com/1gabeortiz/world-cup-2026-dashboard.git
@@ -48,37 +56,39 @@ npm install
 cp .env.example .env.local
 ```
 
-Update `.env.local`:
+### 2) Configure environment variables
+
+Edit `.env.local`:
 
 ```bash
-VITE_FD_API_KEY=your_football_data_key
+VITE_FD_API_KEY=your_football_data_api_key
 VITE_FD_BASE_URL=/api
 ```
 
-Run development server:
+### 3) Run locally
 
 ```bash
 npm run dev
 ```
 
-## Easy Preview
+Open `http://localhost:5173`.
 
-Use these commands when you want a fast walkthrough of all routes:
+## Local Preview Workflow
+
+Use this when you want a polished local walkthrough before taking screenshots:
 
 ```bash
-# Local dev preview (auto-opens browser)
+# Dev preview (opens browser)
 npm run dev:host
 
-# Production-like preview from built files (port 4173)
+# Production-like preview from built files
 npm run preview:local
 ```
 
-Then open the in-app launcher:
+Preview routes:
 
-- `http://localhost:5173/preview` (dev)
-- `http://localhost:4173/preview` (production preview)
-
-The `Preview Hub` route links to every page (`Groups`, `Matches`, `Bracket`, `Top Scorers`) so you can validate everything quickly before screenshots or deploy.
+- `http://localhost:5173/preview`
+- `http://localhost:4173/preview`
 
 ## Quality Checks
 
@@ -89,30 +99,24 @@ npm run test
 npm run build
 ```
 
-## Deployment Notes
+## Project Structure
 
-### Netlify (recommended for this repo right now)
+```text
+src/
+  api/          # typed API client + response models
+  components/   # reusable UI and feature components
+  hooks/        # TanStack Query data hooks
+  pages/        # route-level views
+  utils/        # formatting and match-state helpers
+```
 
-- Import this GitHub repo into Netlify
-- Build command: `npm run build`
-- Publish directory: `dist`
-- Set environment variable:
-  - `FOOTBALL_DATA_API_KEY` = your football-data.org key
-- `netlify.toml` rewrites `/api/*` to the Netlify function
-- `netlify/functions/football-data.js` proxies requests to football-data.org
+## Roadmap
 
-### Vercel (optional alternative)
+- Add final screenshot gallery + short walkthrough GIF
+- Stabilize hosted preview after API proxy decision
+- Expand tests for hooks and key route-level loading/error states
 
-- Keep `FOOTBALL_DATA_API_KEY` set in Vercel
-- Optional: set `VITE_FD_BASE_URL=/api` (client defaults to `/api`)
-- `api/[...path].js` proxies requests to football-data.org in production
-- `vercel.json` keeps SPA routes working (`/groups`, `/matches`, etc.)
+## Notes
 
-## Why This Project
-
-This project was built as a portfolio-focused engineering exercise to demonstrate:
-
-- Type-safe integration with a third-party REST API
-- Professional front-end architecture patterns (service layer, hooks, route pages)
-- Real-time-ish UX handling (polling, cache strategy, status indicators)
-- Production workflow habits (feature branches, CI, tests, deployment)
+- `.env.local` is intentionally not committed.
+- API keys should only live in local env files or hosting platform secrets.
