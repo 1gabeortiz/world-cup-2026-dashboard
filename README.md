@@ -69,6 +69,13 @@ Recommended runtime:
 
 ### 2) Configure environment variables
 
+Get your API key:
+
+1. Create a free account at [football-data.org](https://www.football-data.org/client/register).
+2. Verify your email and log in.
+3. Open your dashboard/profile and copy your API token.
+4. Paste it into `.env.local` as `VITE_FD_API_KEY`.
+
 Edit `.env.local`:
 
 ```bash
